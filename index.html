@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rent Affordability Calculator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h1>Rent Affordability Calculator</h1>
+    <p class="sub">Instant income-based rent qualification tool</p>
+
+    <label>Annual Income</label>
+    <input type="number" id="income" placeholder="e.g. 85000" />
+
+    <div class="buttons">
+      <button onclick="calculate()">Calculate</button>
+      <button onclick="resetForm()" class="secondary">Reset</button>
+    </div>
+
+    <div id="results" class="results hidden">
+      <h2>Results</h2>
+      <div class="box">
+        <p><strong>2.5x Rent:</strong> <span id="r25"></span></p>
+        <p><strong>3x Rent:</strong> <span id="r3"></span></p>
+        <p><strong>3.5x Rent:</strong> <span id="r35"></span></p>
+      </div>
+
+      <button onclick="copyResults()">Copy Results</button>
+      <button onclick="window.print()">Print</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
