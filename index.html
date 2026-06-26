@@ -1,39 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rent Affordability Calculator</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rent Affordability Calculator</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<div class="container">
-  <div class="card">
-    <h1>Rent Affordability Calculator</h1>
-    <p class="sub">Instant income-based rent qualification tool</p>
+  <div class="container">
+    <header class="header">
+      <h1>Rent Affordability Calculator</h1>
+      <p>Instantly determine what rent your applicant can afford</p>
+    </header>
 
-    <label>Annual Income</label>
-    <input type="number" id="income" placeholder="e.g. 85000" />
+    <div class="card">
+      <div class="input-grid">
+        <div class="field">
+          <label>Monthly Income ($)</label>
+          <input type="number" id="income" placeholder="Enter monthly income"/>
+        </div>
 
-    <div class="buttons">
-      <button onclick="calculate()">Calculate</button>
-      <button onclick="resetForm()" class="secondary">Reset</button>
-    </div>
-
-    <div id="results" class="results hidden">
-      <h2>Results</h2>
-      <div class="box">
-        <p><strong>2.5x Rent:</strong> <span id="r25"></span></p>
-        <p><strong>3x Rent:</strong> <span id="r3"></span></p>
-        <p><strong>3.5x Rent:</strong> <span id="r35"></span></p>
+        <div class="field">
+          <label>Desired Rent ($)</label>
+          <input type="number" id="rent" placeholder="Enter rent amount"/>
+        </div>
       </div>
 
-      <button onclick="copyResults()">Copy Results</button>
-      <button onclick="window.print()">Print</button>
-    </div>
-  </div>
-</div>
+      <div class="button-row">
+        <button onclick="calculate()">Calculate</button>
+        <button class="secondary" onclick="resetForm()">Reset</button>
+      </div>
 
-<script src="script.js"></script>
+      <div id="results" class="results hidden">
+        <div class="badge" id="badge"></div>
+
+        <div class="result-box">
+          <h3>Max Affordable Rent</h3>
+          <p id="maxRent">$0</p>
+        </div>
+
+        <div class="ratio-grid">
+          <div>2.5x: <span id="twoFive"></span></div>
+          <div>3.0x: <span id="three"></span></div>
+          <div>3.5x: <span id="threeFive"></span></div>
+        </div>
+
+        <div class="button-row">
+          <button onclick="copyResults()">Copy Results</button>
+          <button onclick="window.print()">Print</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Powered by ezLandlordForms Tools</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
